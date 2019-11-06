@@ -1,3 +1,5 @@
+<!-- This example was taken from https://gist.github.com/n1k0/4332371 -->
+
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites duration="50.5">
     <testsuite failures="0" name="Untitled suite in /Users/niko/Sites/casperjs/tests/suites/casper/agent.js" package="tests/suites/casper/agent" tests="3" time="0.256">

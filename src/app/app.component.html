@@ -1,10 +1,12 @@
 <div class="container">
   <table>
-      <tr>
-      <th>TS</th>
-      </tr>
-      <tr *ngFor="let item of xmlItems">
-      <td>{{item.whatever}}</td>
-      </tr>
+    <tr>
+      <th>Name of the TS</th>    
+      <th>Execution time</th>
+    </tr>
+    <tr *ngFor="let testsuite of testsuites">
+      <td>{{testsuite.$.name}}</td>    
+      <td>{{testsuite.$.time}}</td>
+    </tr>
   </table>
 </div>

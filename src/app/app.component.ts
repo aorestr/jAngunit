@@ -11,57 +11,57 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class AppComponent {
 
   title = 'jAngunit';
-  public xmlItems: any;
-  constructor(private _http: HttpClient) { this.loadXML(); }
+  public xml_object: object;
+  public testsuites: Array<any>
+  public junit_xml: string = '/assets/junit_example.xml';
 
   /**
-   * 
+   * Constructor for the class. Reads the XML file
+   * @param __http : HttpClient object for handling these operations
    */
-  loadXML() {
-    this._http.get('/assets/junit_example.xml', {  
+  constructor(private __http: HttpClient) { this.loadXML(); }
+
+  /**
+   * Get the Junit XML file from its path and then parse it
+   */
+  public loadXML() {
+    this.__http.get(
+      this.junit_xml, {  
         headers: new HttpHeaders()  
           .set('Content-Type', 'text/xml')  
           .append('Access-Control-Allow-Methods', 'GET')  
           .append('Access-Control-Allow-Origin', '*')  
           .append('Access-Control-Allow-Headers', "Access-Control-Allow-Headers, Access-Control-Allow-Origin, Access-Control-Request-Method"),  
         responseType: 'text'
-      })
-      .subscribe((data) => {
-        this.parseXML(data)
-          .then((data) => {
-            this.xmlItems = data;
-          });
-      });
+      }
+    ).subscribe(
+      raw_xml => {
+        this.__parseXML(raw_xml)
+        .then(
+          xml_object => {
+            this.xml_object = xml_object;
+            this.testsuites = xml_object.testsuites.testsuite;
+          }
+        ).catch(
+          err => {
+            this.xml_object = null;
+            console.error("There was an error when trying to read the XML file: ", err);
+          }
+        )
+      }
+    );
   }
 
   /**
-   * 
-   * @param data 
+   * Extract a Typescript object based on the JUnit document
+   * @param raw_xml : JUnit XML as a single string
    */
-  parseXML(data) {  
-    return new Promise(resolve => {  
-      var k: string | number,  
-        arr = [],  
-        parser = new Parser(
-          {  
-            trim: true,  
-            explicitArray: true  
-          }
-        );  
-      parser.parseString(data, function (err, result) {  
-        var obj = result.Employee;  
-        for (k in obj.emp) {  
-          var item = obj.emp[k];  
-          arr.push({  
-            id: item.id[0],  
-            name: item.name[0],  
-            gender: item.gender[0],  
-            mobile: item.mobile[0]  
-          });  
-        }  
-        resolve(arr);  
-      });  
-    });  
+  private __parseXML(raw_xml: string): Promise<any> {
+    let parser = new Parser( {trim: true, explicitArray: true} ),
+      testsuites: object
+    ;
+    parser.parseString(raw_xml, function (err, result) { testsuites = result; });
+    return new Promise(resolve => resolve(testsuites));  
   } 
 
 }  

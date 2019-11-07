@@ -17,12 +17,12 @@ export class AppComponent {
 
   /**
    * Constructor for the class. Reads the XML file
-   * @param __http : HttpClient object for handling these operations
+   * @param __http HttpClient object for handling these operations
    */
   constructor(private __http: HttpClient) { this.loadXML(); }
 
   /**
-   * Get the Junit XML file from its path and then parse it
+   * Get the Junit XML file from its path and then parse it and save it in this.xml_object and this.testsuites
    */
   public loadXML() {
     this.__http.get(
@@ -45,6 +45,7 @@ export class AppComponent {
         ).catch(
           err => {
             this.xml_object = null;
+            this.testsuites = null;
             console.error("There was an error when trying to read the XML file: ", err);
           }
         )
@@ -54,7 +55,7 @@ export class AppComponent {
 
   /**
    * Extract a Typescript object based on the JUnit document
-   * @param raw_xml : JUnit XML as a single string
+   * @param raw_xml JUnit XML as a single string
    */
   private __parseXML(raw_xml: string): Promise<any> {
     let parser = new Parser( {trim: true, explicitArray: true} ),

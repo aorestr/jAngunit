@@ -1,12 +1,3 @@
-<div class="container">
-  <table>
-    <tr>
-      <th>Name of the TS</th>    
-      <th>Execution time</th>
-    </tr>
-    <tr *ngFor="let testsuite of testsuites">
-      <td>{{testsuite.$.name}}</td>    
-      <td>{{testsuite.$.time}}</td>
-    </tr>
-  </table>
-</div>
+<section *ngIf="testsuites">
+  <app-testsuite *ngFor="let testsuite of testsuites" [testsuite]="testsuite"></app-testsuite>
+</section>

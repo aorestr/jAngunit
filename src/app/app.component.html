@@ -1,3 +1,7 @@
-<section *ngIf="testsuites">
+<header class="page-header header container-fluid">
+  <h1>JUnit tests results</h1>
+  <div class="overlay"></div>
+</header>
+<section *ngIf="testsuites" class="container">
   <app-testsuite *ngFor="let testsuite of testsuites" [testsuite]="testsuite"></app-testsuite>
 </section>

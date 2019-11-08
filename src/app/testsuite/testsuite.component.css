@@ -1,0 +1,17 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    width: 32%;
+    height: 200px;
+    border: 2px solid;
+    background-color: #29394b;
+    padding: 10px;
+    color: #bdc2c5;
+}
+
+.ts-name {
+    color: #bdc2c5;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}

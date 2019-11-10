@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { JunitParserService } from "./junit-parser.service";
+import { JunitParserService, JUnitXML, Testsuite } from "./junit-parser.service";
 
 
 @Component({
@@ -10,8 +10,8 @@ import { JunitParserService } from "./junit-parser.service";
 export class AppComponent implements OnInit {
 
   title = 'jAngunit';
-  public xml_object: any;
-  public testsuites: Array<any>
+  public xml_object: JUnitXML;
+  public testsuites: Array<Testsuite>
 
   constructor(private junitParserService: JunitParserService) {}
 
@@ -24,4 +24,4 @@ export class AppComponent implements OnInit {
     );
   }
 
-}  
+}

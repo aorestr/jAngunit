@@ -37,7 +37,7 @@ export class JunitParserService {
    * Extract a Typescript object based on the JUnit document
    * @param raw_xml JUnit XML as a single string
    */
-  public parseXML(raw_xml: string) {
+  public parseXML(raw_xml: string): JUnitXML {
     let parser = new Parser( {trim: true, explicitArray: true} ),
       testsuites: any
     ;
@@ -47,4 +47,22 @@ export class JunitParserService {
 
   public getXMLObject() { return this.loadXML(this.junit_xml); }
 
+}
+
+export interface JUnitXML {
+  testsuites: Testsuites;
+}
+
+export interface Testsuites {
+  $: object;
+  testsuite: Array<Testsuite>;
+}
+
+export interface Testsuite {
+  $: object;
+  testcase: Array<Testcase>;
+}
+
+export interface Testcase {
+  $: object;
 }

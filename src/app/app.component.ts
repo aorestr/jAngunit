@@ -10,14 +10,18 @@ import { JunitParserService } from "./junit-parser.service";
 export class AppComponent implements OnInit {
 
   title = 'jAngunit';
-  public xml_object: object;
+  public xml_object: any;
   public testsuites: Array<any>
 
   constructor(private junitParserService: JunitParserService) {}
 
   ngOnInit() {
-    this.junitParserService.getXMLObject().subscribe(xml_object => this.xml_object = xml_object);
-    this.junitParserService.getTestsuites().subscribe(testsuites => this.testsuites = testsuites);
+    this.junitParserService.getXMLObject().subscribe(
+      xml_object => {
+        this.xml_object = this.junitParserService.parseXML(xml_object);
+        this.testsuites = this.xml_object.testsuites.testsuite;
+      }
+    );
   }
 
 }  

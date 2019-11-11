@@ -1,2 +1,11 @@
 <h2>{{ testsuite?.name }}</h2>
 <h3>{{ testsuite?.package }}</h3>
+
+<div>Number of tests: {{ testsuite?.tests }}</div>
+<div>Number of failures: {{ testsuite?.failures }}</div>
+<div>Total execution time: {{ testsuite?.time }}</div>
+
+<section *ngFor="let tc of testcases">
+    <div>Testcase: {{ tc?.$.name }}</div>
+    <div>Execution time: {{ tc?.$.time }} class</div>
+</section>

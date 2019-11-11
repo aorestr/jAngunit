@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
+import { MultiDataSet } from 'ng2-charts';
 
 import { JunitParserService, Testsuite, TestsuiteProperties, Testcase } from "../junit-parser.service";
 import { SlashToDashPipe } from "../slash-to-dash.pipe";
@@ -13,6 +14,7 @@ export class TestsuiteComponent implements OnInit {
 
   public testsuite: TestsuiteProperties;
   public testcases: Array<Testcase>;
+  public results: MultiDataSet;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -32,6 +34,12 @@ export class TestsuiteComponent implements OnInit {
             );
             this.testsuite = ts.$;
             this.testcases = ts.testcase;
+            this.results = [
+              [
+                this.testsuite.failures,
+                this.testsuite.tests - this.testsuite.failures,
+              ]
+            ]
           }
         );
       }

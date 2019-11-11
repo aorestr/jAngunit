@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ChartsModule } from "ng2-charts";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +9,7 @@ import { TestsuitePreviewComponent } from './testsuite-preview/testsuite-preview
 import { TestsuitesListComponent } from './testsuites-list/testsuites-list.component';
 import { TestsuiteComponent } from './testsuite/testsuite.component';
 import { SlashToDashPipe } from './slash-to-dash.pipe';
+import { TestsuiteChartComponent } from './testsuite-chart/testsuite-chart.component';
 
 @NgModule({  
   declarations: [
@@ -15,10 +17,11 @@ import { SlashToDashPipe } from './slash-to-dash.pipe';
       TestsuitePreviewComponent,
       TestsuitesListComponent,
       TestsuiteComponent,
-      SlashToDashPipe
+      SlashToDashPipe,
+      TestsuiteChartComponent
   ],  
   imports: [
-      BrowserModule, AppRoutingModule, HttpClientModule
+      BrowserModule, AppRoutingModule, HttpClientModule, ChartsModule
   ],
   bootstrap: [
       AppComponent

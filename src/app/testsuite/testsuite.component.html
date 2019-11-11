@@ -1,9 +1,17 @@
 <h2>{{ testsuite?.name }}</h2>
 <h3>{{ testsuite?.package }}</h3>
-
-<div>Number of tests: {{ testsuite?.tests }}</div>
-<div>Number of failures: {{ testsuite?.failures }}</div>
-<div>Total execution time: {{ testsuite?.time }}</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <div>Number of tests: {{ testsuite?.tests }}</div>
+            <div>Number of failures: {{ testsuite?.failures }}</div>
+            <div>Total execution time: {{ testsuite?.time }}</div>
+        </div>
+        <div class="col-sm">
+            <app-testsuite-chart [chartData]="results"></app-testsuite-chart>
+        </div>
+    </div>
+</div>
 
 <section *ngFor="let tc of testcases">
     <div>Testcase: {{ tc?.$.name }}</div>

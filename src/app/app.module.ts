@@ -17,10 +17,9 @@ import { TestsuiteComponent } from './testsuite/testsuite.component';
   ],  
   imports: [
       BrowserModule, AppRoutingModule, HttpClientModule
-  ],  
-  providers: [],  
+  ],
   bootstrap: [
       AppComponent
-  ]  
+  ]
 })  
-export class AppModule {}  
+export class AppModule {}

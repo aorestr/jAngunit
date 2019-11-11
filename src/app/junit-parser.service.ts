@@ -37,9 +37,7 @@ export class JunitParserService {
    * @param raw_xml JUnit XML as a single string
    */
   public parseXML(raw_xml: string): JUnitXML {
-    let parser = new Parser( {trim: true, explicitArray: true} ),
-      testsuites: any
-    ;
+    let parser = new Parser( {trim: true, explicitArray: true} ), testsuites: JUnitXML;
     parser.parseString(raw_xml, function (err, result) { testsuites = result; });
     return testsuites;
   }

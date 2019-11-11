@@ -1,3 +1,4 @@
 <section *ngIf="testsuites">
-    <app-testsuite *ngFor="let testsuite of testsuites" [testsuite]="testsuite"></app-testsuite>
+    <app-testsuite-preview *ngFor="let testsuite of testsuites" [testsuite]="testsuite">        
+    </app-testsuite-preview>
 </section>

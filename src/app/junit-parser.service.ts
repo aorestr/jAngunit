@@ -51,15 +51,27 @@ export interface JUnitXML {
 }
 
 export interface Testsuites {
-  $: object;
+  $: {
+    "duration": number
+  };
   testsuite: Array<Testsuite>;
 }
 
 export interface Testsuite {
-  $: object;
+  $: {
+    "failures": number,
+    "name": string,
+    "package": string,
+    "tests": number,
+    "time": number;
+  };
   testcase: Array<Testcase>;
 }
 
 export interface Testcase {
-  $: object;
+  $: {
+    "classname": string,
+    "name": string,
+    "time": number
+  };
 }

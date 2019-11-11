@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Parser } from 'xml2js';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-
 @Injectable({
   providedIn: 'root'
 })

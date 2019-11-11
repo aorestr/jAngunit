@@ -6,7 +6,7 @@ import { TestsuiteComponent } from "./testsuite/testsuite.component";
 
 const routes: Routes = [
   { path: 'testsuites', component: TestsuitesListComponent },
-  { path: ':package', component: TestsuiteComponent },
+  { path: 'testsuites/:package', component: TestsuiteComponent },
   { path: '', redirectTo: 'testsuites', pathMatch: 'full' }
 ];
 

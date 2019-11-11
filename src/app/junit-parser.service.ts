@@ -58,14 +58,16 @@ export interface Testsuites {
 }
 
 export interface Testsuite {
-  $: {
-    "failures": number,
-    "name": string,
-    "package": string,
-    "tests": number,
-    "time": number;
-  };
+  $: TestsuiteProperties;
   testcase: Array<Testcase>;
+}
+
+export interface TestsuiteProperties {
+  failures: number;
+  name: string;
+  package: string;
+  tests: number;
+  time: number;
 }
 
 export interface Testcase {

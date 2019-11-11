@@ -1,5 +1,5 @@
 <section *ngIf="testsuites">
     <app-testsuite-preview *ngFor="let testsuite of testsuites" [testsuite]="testsuite"
-    routerLink="/{{ testsuite.$.package }}" routerLinkActive="active">
+    routerLink="/testsuites/{{ testsuite.$.package | slashToDash }}" routerLinkActive="active">
     </app-testsuite-preview>
 </section>

@@ -1,19 +1,26 @@
-<h2>{{ testsuite?.name }}</h2>
-<h3>{{ testsuite?.package }}</h3>
-<div class="container">
+<h2 class="ts-main-title mb-0 pl-4 pb-1 pt-1">{{ testsuite?.name }}</h2>
+<h3 class="ts-main-subtitle pl-5 pb-1 pt-1">{{ testsuite?.package }}</h3>
+<div class="">
     <div class="row">
-        <div class="col-sm">
-            <div>Number of tests: {{ testsuite?.tests }}</div>
-            <div>Number of failures: {{ testsuite?.failures }}</div>
-            <div>Total execution time: {{ testsuite?.time }}</div>
+        <div class="col-8 mt-3 pl-5">
+            <section *ngFor="let tc of testcases" class="mb-3">
+                <div>Testcase: {{ tc?.$.name }}</div>
+                <div>Execution time: {{ tc?.$.time }} class</div>
+            </section>
         </div>
-        <div class="col-sm">
-            <app-testsuite-chart [chartData]="results"></app-testsuite-chart>
+        <div class="col-4">
+            <div class="row">
+                <div class="col-12">
+                    <app-testsuite-chart [chartData]="results" class="position-fixed"></app-testsuite-chart>
+                </div>
+            </div>
+            <div class="row mt-5 pt-5">
+                <div class="col-12 position-fixed mt-5 pt-5">
+                    <div>Number of tests: {{ testsuite?.tests }}</div>
+                    <div>Number of failures: {{ testsuite?.failures }}</div>
+                    <div>Total execution time: {{ testsuite?.time }}</div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
-<section *ngFor="let tc of testcases">
-    <div>Testcase: {{ tc?.$.name }}</div>
-    <div>Execution time: {{ tc?.$.time }} class</div>
-</section>

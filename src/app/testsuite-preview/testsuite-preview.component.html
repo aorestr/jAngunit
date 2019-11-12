@@ -1,3 +1,7 @@
-<h3 class="ts-name">{{ testsuite?.$.name }}</h3>
-<div>Number of tests: {{ testsuite?.$.tests }}</div>
-<div>Number of failures: {{ testsuite?.$.failures }}</div>
+<div class="preview-item p-2">
+    <div class="ts-name-container" routerLink="/testsuites/{{ testsuite?.$.package | slashToDash }}" routerLinkActive="active">
+        <h3 class="ts-name p-3">{{ testsuite?.$.name }}</h3>
+    </div>
+    <div class="pl-3">Number of tests: {{ testsuite?.$.tests }}</div>
+    <div class="pl-3">Number of failures: {{ testsuite?.$.failures }}</div>
+</div>

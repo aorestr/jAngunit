@@ -1,19 +1,46 @@
 # JAngunit
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.17.
 
-## Development server
+It was developed and tested only in `Elementary OS 5.0 Juno`.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Goal
+### App
+This webapp takes a JUnit XML results file and expose it in a visual way. It has a main page where all the testsuites are displayed and then a detailed view of each of them.
 
-## Code scaffolding
+### Personal motif
+I've started this small project as a way to learn:
+1. The basics of web development.
+2. Particularly how this framework (Angular) works.
+3. To improve my coding skills and open it up to new things.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Prerequisites
+### Node Package Manager (NPM) and Angular
+First of all you will need Angular installed in your system. Install `NPM` first to reach this:
+```
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - sudo apt-get install -y nodejs
+sudo npm install npm@latest -g
+npm install -g @angular/cli
+```
 
-## Build
+### Dependencies
+Clone the repo in your system and install the packages included in `packages.json` before running the app by using `NPM`.
+```
+cd jAngunit; npm install
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Run the server
+Once you're inside the project directory, run:
+```
+npm start
+```
+You can access the the app in any browser by accessing URL _http://localhost:4270/_.
 
-## Further help
+## Results
+The following pictures are taken directly from the app:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+![Testsuites](./1_testsuites.png "Testsuites")
+
+![Testsuite details"](./2_testsuitedetails.png "Testsuite details")
+
+## Acknowledgements
+I must thank to @jlram for helping me out with all the styling in the app.

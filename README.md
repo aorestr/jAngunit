@@ -43,4 +43,4 @@ The following pictures are taken directly from the app:
 ![Testsuite details"](./2_testsuitedetails.png "Testsuite details")
 
 ## Acknowledgements
-I must thank to @jlram for helping me out with all the styling in the app.
+I must thank to [@jlram](https://github.com/jlram) for helping me out with all the styling in the app.

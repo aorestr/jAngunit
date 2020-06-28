@@ -15,8 +15,9 @@ I've started this small project as a way to learn:
 
 ## Prerequisites
 
-### Option 1: Install using your own machine
+### Option 1: Use your own machine
 
+You will need to install several packages to your host.
 #### Node Package Manager (NPM) and Angular
 First of all you will need Angular installed in your system. Install `NPM` first to reach this:
 ```
@@ -39,15 +40,16 @@ npm start
 You can access the the app in any browser by accessing URL _http://localhost:4270/_.
 
 ### Option 2: Use Docker
+
 If you don't have Docker installed on your system, check out [this repo of mine](https://github.com/aorestr/dockerizing-jAngunit).
 #### Build and run the app in dev mode
 Once you are located on the repo folder, build the Docker image:
 ```
-docker build -t angular-app:dev -f Dockerfile .
+docker build -t jangunit-app:dev -f Dockerfile .
 ```
 And then run a container based on it:
 ```
-docker run --rm -ti -v ${PWD}:/app -v /app/node_modules -p 4270:4270 --name angular-container angular-app:dev
+docker run --rm -ti -v ${PWD}:/app -v /app/node_modules -p 4270:4270 --name jangunit-container jangunit-app:dev
 ```
 You can access the Angular app just by typing "http://localhost:4270/" on your favourite browser. Any change you make on the code will be taken by the container and make it available on the browser.
 
